@@ -1,4 +1,3 @@
-import os, os.patch
 import random
 import string
 
@@ -9,13 +8,11 @@ class StringGenerator(object):
   @cherrypy.expose
   def index(self):
     return """<html>
-      <head>
-        <link href="/static/css/style.css rel="stylesheet">
-      </head>
+      <head></head>
       <body>
-        <form method="get" action ="generate">
+        <form method="get" action="generate">
           <input type="text" value="8" name="length" />
-          <button type="submit">Give me da heXes!!</button>
+          <button type="submit">Give me da hex code now!</button>
         </form>
       </body>
     </html>"""
@@ -34,13 +31,11 @@ class StringGenerator(object):
 if __name__ == '__main__':
   conf = {
     '/': {
-      'tools.sessions.on': True,
-      'tools.staticdir.root': os.path.abspath(os.getcwd())
-    },
-    '/static': {
-      'tools.staticdir.on': True,
-      'tools.staticdie.dir': './public'
+      'tools.sessions.on': True
     }
   }
+  ###lines 30-34 show you how to enable the session support in your CherryPy application. By default, CherryPy will save sessions in the process’s memory. It supports more persistent backends as well.####
   cherrypy.config.update("server.conf")
   cherrypy.quickstart(StringGenerator(), '/', conf)
+
+  
