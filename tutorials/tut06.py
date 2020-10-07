@@ -1,4 +1,4 @@
-import os
+import os, os.patch
 import random
 import string
 
