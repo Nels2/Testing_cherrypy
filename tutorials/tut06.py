@@ -1,4 +1,4 @@
-import os, os.patch
+import os
 import random
 import string
 
@@ -10,10 +10,10 @@ class StringGenerator(object):
   def index(self):
     return """<html>
       <head>
-        <link href="/static/css/style.css rel="stylesheet">
+        <link href="/static/css/style.css" rel="stylesheet">
       </head>
       <body>
-        <form method="get" action ="generate">
+        <form method="get" action="generate">
           <input type="text" value="8" name="length" />
           <button type="submit">Give me da heXes!!</button>
         </form>
